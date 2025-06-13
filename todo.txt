@@ -1,0 +1,29 @@
+TODO APP
+- đăng nhập/ đăng kí
+- ghi nhận sự kiện 
+- hiển thị lịch
+- thông báo về ngày sự kiện xảy ra
+- sửa hoặc xóa sự kiện 
+* nếu là admin:
++ xem được tất cả sự kiện của tất cả mọi người
+
+
+
+
+database:
+- lưu các lịch
+- schema:
++ id_user : của từng người dăng nhập vào web
++ id : năm + tháng + ngày ->dễ sort theo thứ tự 
++ tên
++ deadline
++ chi tiết
++ option
+
+html:
+1 trang
+- chỗ ghi 
+- nút lưu 
+- nút hiển thị toàn bộ lịch
+- có nút xóa từng lịch
+- gửi thông báo
