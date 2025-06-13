@@ -7,6 +7,8 @@ TODO APP
 * nếu là admin:
 + xem được tất cả sự kiện của tất cả mọi người
 
+sắp xếp theo thời gian deadline
+
 
 
 
