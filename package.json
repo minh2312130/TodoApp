@@ -1,5 +1,28 @@
 {
+  "name": "todo-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --watch frontend server.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
-  }
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minh2312130/TodoApp.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/minh2312130/TodoApp/issues"
+  },
+  "homepage": "https://github.com/minh2312130/TodoApp#readme",
+  "description": ""
 }

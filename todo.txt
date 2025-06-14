@@ -12,20 +12,55 @@ sắp xếp theo thời gian deadline
 
 
 
-database:
-- lưu các lịch
-- schema:
+database:-> MongoDB
+- lưu các sự kiện
+- schema: 2 cái 
+module/
+- Event.js:
 + id_user : của từng người dăng nhập vào web
 + id : năm + tháng + ngày ->dễ sort theo thứ tự 
-+ tên
++ name
++ tag
 + deadline
-+ chi tiết
++ describe
 + option
 
-html:
-1 trang
-- chỗ ghi 
+- Acc.js:
++ name user -> ko trùng , bắt buộc
++ pass -> bắt buộc
++ email
++ thời gian tạo acc
++ totalEvent
+
+router/
+- routerAcc:
++ login
++ signin
+
+
+
+
+
+-> viết vào .env ( file ẩn chứa các key cần thiết)
+
+html/css:
+2 trang
+*đăng nhập
+*vào chính
+- chỗ ghi -> 
 - nút lưu 
 - nút hiển thị toàn bộ lịch
-- có nút xóa từng lịch
-- gửi thông báo
+- có nút xóa từng sự kiện khi hiển thị
+-> có run.js để gọi api
+
+
+sever:
+lưu về database
+xác thực đăng nhập
+làm thành các api để frontend gọi
+
+auth: bảo mật đăng nhập đăng ký 
+
+
+
+
