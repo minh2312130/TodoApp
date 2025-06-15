@@ -34,24 +34,35 @@ module/
 
 router/
 - routerAcc:
-+ login
-+ signin
-
-
++ login -> tạo token
++ signin -> tạo acc,
 
 
 
 -> viết vào .env ( file ẩn chứa các key cần thiết)
 
 html/css:
-2 trang
-*đăng nhập
+3 trang
+*đăng nhập/ đăng ký
+- input name,pass,email*
+- button login/signin
+
 *vào chính
 - chỗ ghi -> 
 - nút lưu 
 - nút hiển thị toàn bộ lịch
 - có nút xóa từng sự kiện khi hiển thị
 -> có run.js để gọi api
+
+*personal -> phải đúng token mới vào được 
+- hiển thị tên đăng nhập
+- chỉnh sửa email
+- chỉnh sửa password
+
+runLogin.js:
+- login 
+- sign-> tạo acc, quay về login
+
 
 
 sever:
