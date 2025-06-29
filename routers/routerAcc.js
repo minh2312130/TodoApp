@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Account = require('../module/Account');
 const jwt = require('jsonwebtoken');
-const { checklogin } = require('../helper/helper');
+const { checklogin,isAdmin } = require('../helper/helper');
 
 
 // Create a new account
@@ -76,6 +76,7 @@ router.put('/update',checklogin,async(req,res)=>{
     }
 
 });
+
 // delete Account
 router.delete('/delete',checklogin,async (req,res)=>{
     var decode = req.decode;
@@ -87,7 +88,6 @@ router.delete('/delete',checklogin,async (req,res)=>{
         console.error(error);
         return res.status(401).json({message:" delete failed"});
     }
-
 });
 // get Account
 router.get('/getAcc',checklogin, async (req,res)=>{
@@ -102,7 +102,31 @@ router.get('/getAcc',checklogin, async (req,res)=>{
     }
 
 });
+// get all Account
+router.get('/getAllAcc',checklogin,isAdmin, async (req,res)=>{
+    try{
+        var Acc = await Account.find();
+        return res.status(200).json({Acc:Acc});
+    }
+    catch(error){
+        console.error(error);
+        return res.status(400).json({message: '$(error)'});
+    }
+});
 
+
+// for admin delete Account
+router.delete('/admin/delete',checklogin,isAdmin,async (req,res)=>{
+    var {username} = req.body;
+    try{
+        await Account.deleteOne({username:username});
+        return res.status(200).json({message:" delete acc successfully"});
+    }
+    catch(error){   
+        console.error(error);
+        return res.status(401).json({message:" delete failed"});
+    }
+});
 
 
 module.exports = router;

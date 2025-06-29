@@ -23,6 +23,24 @@ const checklogin = async (req,res,next)=>{
 
 }
 
+function isAdmin(req, res, next) {
+  Account.findById(req.decode.id)
+    .then(data => {
+      if (data.role == process.env.AdminRole) {
+        next();
+      } else {
+        res.status(403).json({ message: 'Access denied. Admins only.' });
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      return res.status(500).json({ message: 'Internal server error' });
+    });
+  
+}
+
+
 module.exports = {
-  checklogin
+  checklogin,
+  isAdmin
 }

@@ -1,0 +1,22 @@
+#tittle{
+    text-align: center;
+    color: #333;
+}
+
+#userBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45%;
+    max-height: 77vh;
+    border: 1px solid #ccc;
+       /* Chiều cao tối đa để hiển thị trước khi cuộn */
+    overflow-y: auto;          /* Tạo thanh cuộn theo chiều dọc */
+}
+
+#userDetailBox{
+    width: 55%;
+    max-height: 77vh;         /* Chiều cao tối đa để hiển thị trước khi cuộn */
+    border: 1px solid #ccc;    /* (tuỳ chọn) để thấy rõ khung */
+}
