@@ -11,7 +11,8 @@ const Account = new mongoose.Schema({
         required: true
     },
     email:{
-        type: String
+        type: String,
+        require: true
     },
     createdAt: {
         type: Date,
@@ -20,8 +21,11 @@ const Account = new mongoose.Schema({
     totalEvent :{
         type: Number,
         default: 0
+    },
+    role:{
+        type: String,
+        default: 'user'
     }
-
 });
 
 

@@ -1,9 +1,10 @@
 var Gosignin_btn = document.getElementById("GoSignin_btn");
 var signin_btn = document.getElementById("signin_btn");
 var login_btn = document.getElementById("login_btn");
+var back_btn = document.getElementById("back_btn");
 
-function checkValidation(name, pass) {
-  if (!name.value || !pass.value) {
+function checkValidation(name, pass,email) {
+  if (!name || !pass || !email) {
     alert("Please fill in all fields.");
     return false;
   }
@@ -15,27 +16,29 @@ function checkValidation(name, pass) {
 async function login() {
   const username = document.getElementById("name");
   const password = document.getElementById("pass");
-  if (!checkValidation(username, password)) {
+  if (!checkValidation(username.value, password.value,"ok")) {
     username.value = "";
     password.value = "";
     return;
   }
-  console.log("press");
   $.ajax({
-    url: "/login",
+    url: "/acc/login",
     method: "POST",
     dataType: "json",
     data: {
       username: username.value,
       password: password.value,
     },
+    xhrFields: {
+      withCredentials: true //BẮT BUỘC để cookie gửi về client
+    },
     success: function (data) {
-      console.log('ok');
-      window.location.href = "/trangchu"; // Redirect to the main page
+      alert(data.message);
+      window.location.href = data.Goto;
     },
     error: function (error) {
-      console.error("Error fetching account:", error);
-      alert("Login failed. Please check your username and password.");
+      console.error(error.message);
+      alert(error.responseJSON.message || "Login failed. Please try again.");
       username.value = "";
       password.value = "";
     },
@@ -46,18 +49,15 @@ async function signin() {
   const username = document.getElementById("nameSign");
   const password = document.getElementById("passSign");
   const email = document.getElementById("emailSign");
-  console.log(username.value);
-  console.log(password.value);
-  console.log(email.value);
 
-  if (!checkValidation(username, password)) {
+  if (!checkValidation(username, password,email)) {
     username.value = "";
     password.value = "";
     email.value = "";
     return;
   }
   $.ajax({
-    url: "/signin",
+    url: "/acc/signin",
     method: "POST",
     dataType:'json',
     data:{
@@ -66,12 +66,12 @@ async function signin() {
       email: email.value,
     },
     success: function (data) {
-      alert("Account created successfully!");
-      window.location.href = "/"; // Redirect to the main page
+      alert(data.message);
+      window.location.href = "/acc"; // Redirect to the main page
     },
     error: function (error) {
-      console.error("Error creating account:", error);
-      alert("Sign up failed. Please try again.");
+      console.error(error.message);
+      alert("Account is existed. Please try again.");
       username.value = "";
       password.value = "";
       email.value = "";
@@ -83,7 +83,12 @@ function goSignin() {
   document.getElementById("box_login").style.display = "none";
   document.getElementById("box_signin").style.display = "flex";
 }
+function goLogin() {
+  document.getElementById("box_signin").style.display = "none";
+  document.getElementById("box_login").style.display = "flex";
+}
 
+back_btn.addEventListener("click", goLogin);
 login_btn.addEventListener("click", login);
 Gosignin_btn.addEventListener("click", goSignin);
 signin_btn.addEventListener("click", signin);

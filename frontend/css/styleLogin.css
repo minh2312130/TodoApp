@@ -30,7 +30,7 @@
 #login_btn{
     width: 90px;
     height: 40px;
-    margin-left: 70%;
+    margin-left: 190px;
     cursor: pointer;
 }
 
@@ -71,10 +71,11 @@
 
 }
 
-#signin_btn{
+#signin_btn,#back_btn{
     width: 90px;
     height: 40px;
-    margin-left: 70%;
+    margin-left: 45px;
+    margin-right: 45px;
     margin-bottom: 0%;
     cursor: pointer;
 }

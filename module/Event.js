@@ -1,27 +1,28 @@
 const mongoose  = require("mongoose");
 
 const Event = mongoose.Schema({
-    id_user:{
+    userId:{
         type: String,
         required: true,
         index: true // Index for faster queries
     },
-    id:{
-        type : Number
-    },
     name:{
         type: String,
-        required: true
+        default:""
     },
     tag:{
-        type: String
+        type: String,
+        default:""
     },
     deadline:{
         type : Date,
         required: true
     },
     describe: String,
-    option: {},
+    option: {
+        type: String,
+        defaul:""
+    }
 
 });
 

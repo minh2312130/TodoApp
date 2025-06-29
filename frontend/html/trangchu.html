@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/make.css">
+    <link rel="stylesheet" href="css/styleTrangchu.css">
 </head>
-<body>
+
+<body style="display: flex; flex-direction: column;">
     <h1 id="tittle"> TO DO APP</h1>
-    <div id="box_login">
-        <input type="text" id="name" placeholder="name">
-        <input type="text" id="pass" placeholder="chi tiết">
-        <input type="date" id="date" placeholder="Enter date">
-        <button id="add">Add</button>
+    <div id="Person">
+        <button id="person_btn">Person</button>
     </div>
-    
+    <div style="display: flex; flex-direction: row; width: 100%;height: 85px;">
+        <div style="display: flex; flex-direction: column; width: 80%;">
+            <div id="box_event_1">
+                <input type="text" id="name" placeholder="name">
+                <input type="datetime-local" id="date">
+            </div>
+            <div id="box_event_2">
+                <input type="text" id="describe" placeholder="chi tiết">
+            </div>
+
+        </div>
+        <div class="option">
+            <button id="add">Add</button>
+            <button id="seeEvent">seeEvent</button>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row; width: 100%; height: 100%; border: 1px solid #0d09f0;">
+        <div id="seeEventBox"></div>
+        <div id="seeEventDetail"></div>
+    </div>
+
+
+
+
 </body>
 <script src="js/jquery-3.7.1.min.js"></script>
-<script src="js/run.js"></script>
+<script src="js/runTrangchu.js"></script>
+
 </html>

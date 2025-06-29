@@ -8,7 +8,7 @@ TODO APP
 + xem được tất cả sự kiện của tất cả mọi người
 
 sắp xếp theo thời gian deadline
-
+* sử dụng cookie để lưu
 
 
 
@@ -36,7 +36,13 @@ router/
 - routerAcc:
 + login -> tạo token
 + signin -> tạo acc,
++ update acc : name,pass,email
++ delete acc
 
+- routerEvent:
++ tạo
++ chỉnh sửa : deadline/ tên
++ xóa
 
 
 -> viết vào .env ( file ẩn chứa các key cần thiết)
@@ -46,6 +52,7 @@ html/css:
 *đăng nhập/ đăng ký
 - input name,pass,email*
 - button login/signin
+- client lưu token
 
 *vào chính
 - chỗ ghi -> 
@@ -63,7 +70,9 @@ runLogin.js:
 - login 
 - sign-> tạo acc, quay về login
 
-
+runPersonal.js:
+- thay tên user
+- 
 
 sever:
 lưu về database
