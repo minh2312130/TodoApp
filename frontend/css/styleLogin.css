@@ -79,3 +79,16 @@
     margin-bottom: 0%;
     cursor: pointer;
 }
+
+#box_checkCode{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+}

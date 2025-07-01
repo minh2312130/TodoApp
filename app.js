@@ -9,13 +9,14 @@ app.use(cookieParser());
 const acc = require("./routers/routerAcc"); // Import the login router
 const event = require("./routers/routerEvent");
 const sending = require("./Action/Sending");
-
+const controller = require("./routers/Controler");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/acc", acc);
 app.use("/event",event);
+app.use("/controller",controller);
 //app.use("/sending",sending);
 
 
@@ -30,7 +31,6 @@ app.get("/trangchu", (req, res) => {
 app.get("/trangchuAdmin", (req, res) => {
   res.sendFile(__dirname + "/frontend/html/trangchuAdmin.html");
 });
-
 
 app.get("/personal",(req,res)=>{
   res.sendFile(__dirname + "/frontend/html/personal.html");

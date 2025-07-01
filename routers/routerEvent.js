@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Account = require("../module/Account");
 const Event = require("../module/Event");
-const jwt = require("jsonwebtoken");
 const {checklogin} = require('../helper/helper');
 const {scheduleEvent} = require('./Scheduler'); 
 
@@ -85,7 +84,7 @@ router.delete("/deleteEvent",checklogin, async (req, res) => {
       creatAt: creatAt,
       name:name
     });
-    await Account.updateOne({id:decode.id},{$inc:{totalEvent:-1}});
+    await Account.updateOne({username:decode.username},{$inc:{totalEvent:-1}});
     return res.status(200).json({ message: "delete event successfully" });
   } catch (error) {
     console.error(error);

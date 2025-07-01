@@ -2,7 +2,7 @@
 const schedule = require("node-schedule");
 const Event = require("../module/Event");
 const Account = require("../module/Account");
-const { SendMail } = require("../Action/Sending");
+const { SendMailEvent } = require("../Action/Sending");
 
 function scheduleEvent(event, userId) {
   schedule.scheduleJob(new Date(event.deadline), () => {
@@ -15,7 +15,7 @@ function scheduleEvent(event, userId) {
         if (account) {
           console.log("Email của account:", account.email); // ✅ Lấy thuộc tính ở đây
           email = account.email;
-          SendMail(event, email);
+          SendMailEvent(event, email);
         } else {
           console.log("Không tìm thấy account");
         }
