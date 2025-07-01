@@ -11,7 +11,7 @@ app.use(express.static('frontend'));
 // Connect to MongoDB
 const connectDB = require('./config/db');
 connectDB().then(() => {
-  restoreScheduledEvents(); // 🔥 Khôi phục các job khi DB sẵn sàng
+  restoreScheduledEvents(); // Khôi phục các job khi DB sẵn sàng
 });
 
 // make admin

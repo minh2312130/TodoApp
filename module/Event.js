@@ -4,7 +4,7 @@ const Event = mongoose.Schema({
     userId:{
         type: String,
         required: true,
-        index: true // Index for faster queries
+        index: true // Index for faster query
     },
     name:{
         type: String,

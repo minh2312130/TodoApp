@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --watch frontend server.js"
+    "start": "nodemon --watch frontend server.js" 
   },
   "author": "",
   "license": "ISC",
